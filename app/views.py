@@ -118,6 +118,13 @@ def send_text_file(file_name):
     file_dot_text = file_name + '.txt'
     return app.send_static_file(file_dot_text)
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("You have been logged out!")
+    return redirect(url_for('home'))
+
 
 @app.after_request
 def add_header(response):
