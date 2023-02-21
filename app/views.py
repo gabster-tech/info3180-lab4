@@ -106,6 +106,7 @@ def get_image(filename):
 
 """Exercie 6.3"""
 @app.route("/files")
+@login_required
 def files():
     files = get_uploaded_images()
     return render_template("files.html", files=files)
